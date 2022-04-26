@@ -1,0 +1,27 @@
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+.editor-styles-wrapper {
+  background-color: #fff !important;
+}
+.editor-styles-wrapper img {
+  height: 720px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.edit-post-visual-editor__post-title-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.wp-block-block-test-image-list {
+  margin-top: 0 !important;
+}
+
+.editor-styles-wrapper ol {
+  margin: 0 !important;
+  padding-left: 0 !important;
+}
+
+/*# sourceMappingURL=index.css.map*/

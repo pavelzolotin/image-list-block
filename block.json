@@ -1,0 +1,44 @@
+{
+	"apiVersion": 2,
+	"name": "block-test/image-list",
+	"title": "Image List",
+	"category": "media",
+	"icon": "format-gallery",
+	"description": "Show image carousel.",
+	"keywords": [ "Image", "Carousel", "Gallery" ],
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"gallery": {
+			"type": "array",
+			"source": "query",
+			"selector": ".wp-block-block-test-image-list img",
+			"default": "",
+			"query": {
+				"url": {
+					"type": "string",
+					"source": "attribute",
+					"attribute": "src"
+				},
+				"id": {
+					"type": "number",
+					"source": "attribute",
+					"attribute": "data-id",
+					"default": ""
+				},
+				"alt": {
+					"type": "string",
+					"source": "attribute",
+					"attribute": "alt",
+					"default": ""
+				}
+			}
+		}
+	},
+	"textdomain": "image-list",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+	"viewScript": "file:./build/view.js"
+}
