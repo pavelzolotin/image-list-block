@@ -4417,6 +4417,10 @@ function Edit({
     className: "wp-block-block-test-image-list__slider--img list"
   }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(obj.url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Spinner, null)))), (!gallery || gallery && (gallery.length === undefined || gallery.length === 0)) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
     icon: "format-gallery",
+    labels: {
+      title: 'Image Gallery',
+      instructions: 'Add image gallery to your page.'
+    },
     onSelect: onSelectImage,
     onError: onUploadError,
     accept: "image/*",

@@ -112,6 +112,7 @@ export default function Edit( { attributes, setAttributes, noticeOperations, not
 				{ ( !gallery || ( gallery && (gallery.length === undefined || gallery.length === 0 ))) && (
                     <MediaPlaceholder
 						icon="format-gallery"
+                        labels = { { title: 'Image Gallery', instructions: 'Add image gallery to your page.' } }
 						onSelect={ onSelectImage }
                         onError={onUploadError}
 						accept="image/*"
