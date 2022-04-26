@@ -5,7 +5,7 @@ import {
 	BlockControls,
 	MediaUpload,
 	InspectorControls,
-    MediaPlaceholder,
+	MediaPlaceholder,
 } from '@wordpress/block-editor';
 import {
 	Spinner,
@@ -20,9 +20,15 @@ import './editor.scss';
 //external imports
 import Flickity from 'react-flickity-component';
 
-export default function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
+export default function Edit( {
+	attributes,
+	setAttributes,
+	noticeOperations,
+	noticeUI,
+} ) {
 	const { gallery, displayImageList } = attributes;
-	const ids = gallery && gallery.length > 0 && gallery.map( ( obj ) => obj.id );
+	const ids =
+		gallery && gallery.length > 0 && gallery.map( ( obj ) => obj.id );
 
 	const onSelectImage = ( media ) => {
 		const images = [];
@@ -45,9 +51,16 @@ export default function Edit( { attributes, setAttributes, noticeOperations, not
 		} );
 	};
 
-    const onUploadError = (message) => {
+	const onUploadError = ( message ) => {
 		noticeOperations.removeAllNotices();
-		noticeOperations.createErrorNotice(message);
+		noticeOperations.createErrorNotice( message );
+	};
+
+	const flickityOptions = {
+		cellAlign: 'center',
+		draggable: true,
+		contain: true,
+		wrapAround: true,
 	};
 
 	return (
@@ -58,15 +71,15 @@ export default function Edit( { attributes, setAttributes, noticeOperations, not
 						<ToggleControl
 							label="Change images view"
 							className="toggleImage"
-                            help={
-							displayImageList
-								? 'Show all image list.'
-								: 'Show as slider.'
-						}
-						onChange={(boolean) => {
-							setAttributes({ displayImageList: boolean });
-						}}
-						checked={displayImageList}
+							help={
+								displayImageList
+									? 'Show all image list.'
+									: 'Show as slider.'
+							}
+							onChange={ ( boolean ) => {
+								setAttributes( { displayImageList: boolean } );
+							} }
+							checked={ displayImageList }
 						/>
 					</PanelBody>
 				</InspectorControls>
@@ -91,57 +104,67 @@ export default function Edit( { attributes, setAttributes, noticeOperations, not
 				</BlockControls>
 			) }
 			<div { ...useBlockProps() }>
-            {displayImageList && (
-                <>
-						{gallery &&
+				{ displayImageList && (
+					<>
+						{ gallery &&
 							gallery.length > 0 &&
-							gallery.map((obj, index) => (
+							gallery.map( ( obj, index ) => (
 								<>
-                                <img
-									src={ obj.url }
-									alt={ obj.alt }
-									key={ index }
-                                    className="wp-block-block-test-image-list__slider--img list"
-								/>
-								{ isBlobURL( obj.url ) && <Spinner /> }
+									<img
+										src={ obj.url }
+										alt={ obj.alt }
+										key={ index }
+										className="wp-block-block-test-image-list__slider--img list"
+									/>
+									{ isBlobURL( obj.url ) && <Spinner /> }
 								</>
-							))}
+							) ) }
 					</>
-				)}
+				) }
 
-				{ ( !gallery || ( gallery && (gallery.length === undefined || gallery.length === 0 ))) && (
-                    <MediaPlaceholder
+				{ ( ! gallery ||
+					( gallery &&
+						( gallery.length === undefined ||
+							gallery.length === 0 ) ) ) && (
+					<MediaPlaceholder
 						icon="format-gallery"
-                        labels = { { title: 'Image Gallery', instructions: 'Add image gallery to your page.' } }
+						labels={ {
+							title: 'Image Gallery',
+							instructions: 'Add image gallery to your page.',
+						} }
 						onSelect={ onSelectImage }
-                        onError={onUploadError}
+						onError={ onUploadError }
 						accept="image/*"
 						allowedTypes={ [ 'image' ] }
-                        notices={noticeUI}
+						notices={ noticeUI }
 						gallery
 						multiple
 					/>
-				)}
-                {!displayImageList && (
-					<>
-                { gallery && gallery.length > 0 && (
-					<Flickity className={ 'wp-block-block-test-image-list__slider' }
-                    >
-						{ gallery.map( ( obj, index ) => (
-							<>
-								<img
-									src={ obj.url }
-									alt={ obj.alt }
-									key={ index }
-                                    className='wp-block-block-test-image-list__slider--img'
-								/>
-								{ isBlobURL( obj.url ) && <Spinner /> }
-							</>
-						) ) }
-					</Flickity>
 				) }
-                </>
-                )}
+				{ ! displayImageList && (
+					<>
+						{ gallery && gallery.length > 0 && (
+							<Flickity
+								className={
+									'wp-block-block-test-image-list__slider'
+								}
+								options={ flickityOptions }
+							>
+								{ gallery.map( ( obj, index ) => (
+									<>
+										<img
+											src={ obj.url }
+											alt={ obj.alt }
+											key={ index }
+											className="wp-block-block-test-image-list__slider--img"
+										/>
+										{ isBlobURL( obj.url ) && <Spinner /> }
+									</>
+								) ) }
+							</Flickity>
+						) }
+					</>
+				) }
 			</div>
 		</>
 	);

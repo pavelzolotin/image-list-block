@@ -4383,6 +4383,12 @@ function Edit({
     noticeOperations.createErrorNotice(message);
   };
 
+  const flickityOptions = {
+    cellAlign: 'center',
+    draggable: true,
+    contain: true,
+    wrapAround: true
+  };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, gallery && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Settings', 'image-list')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
@@ -4429,7 +4435,8 @@ function Edit({
     gallery: true,
     multiple: true
   }), !displayImageList && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, gallery && gallery.length > 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((react_flickity_component__WEBPACK_IMPORTED_MODULE_6___default()), {
-    className: 'wp-block-block-test-image-list__slider'
+    className: 'wp-block-block-test-image-list__slider',
+    options: flickityOptions
   }, gallery.map((obj, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: obj.url,
     alt: obj.alt,
