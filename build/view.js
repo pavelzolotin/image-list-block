@@ -4402,30 +4402,18 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_flickity_flickity_pkgd_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/flickity/flickity.pkgd.js */ "./assets/flickity/flickity.pkgd.js");
 /* harmony import */ var _assets_flickity_flickity_pkgd_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_flickity_flickity_pkgd_js__WEBPACK_IMPORTED_MODULE_0__);
- // const $carousel = $('.wp-block-block-test-image-list__slider').flickity({
-//     cellAlign: 'left',
-// 	contain: true,
-// 	autoPlay: true,
-// 	draggable: false,
-// 	wrapAround: true,
-//   });
-//   const isFlickity = true;
-// $('.toggleImage').on( 'click', function() {
-//   if ( isFlickity ) {
-//     $carousel.flickity('destroy');
-//   } else {
-//     $carousel.flickity();
-//   }
-//   isFlickity = !isFlickity;
-// });
 
-jQuery('.wp-block-block-test-image-list__slider').flickity({
-  cellAlign: 'left',
-  contain: true,
-  autoPlay: true,
-  draggable: false,
-  wrapAround: true
-});
+
+(function ($) {
+  $('.wp-block-block-test-image-list__slider').flickity({
+    cellAlign: 'left',
+    contain: true,
+    autoPlay: true,
+    draggable: false,
+    wrapAround: true,
+    pauseAutoPlayOnHover: false
+  });
+})(jQuery);
 }();
 /******/ })()
 ;

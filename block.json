@@ -34,6 +34,10 @@
 					"default": ""
 				}
 			}
+		},
+        "displayImageList": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"textdomain": "image-list",

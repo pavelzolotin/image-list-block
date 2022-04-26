@@ -5,17 +5,19 @@ export default function Save( { attributes } ) {
 
 	return (
 		<div { ...useBlockProps.save() }>
-        <div className="wp-block-block-test-image-list__slider">
-			{ gallery &&
-				gallery.map( ( obj, index ) => (
+			{ gallery && gallery.length > 0 && (
+                <div className="wp-block-block-test-image-list__slider">
+				{gallery.map( ( obj, index ) => (
 					<img
 						data-id={ obj.id }
 						src={ obj.url }
 						alt={ obj.alt }
 						key={ index }
+                        className="wp-block-block-test-image-list__slider--img"
 					/>
 				) ) }
                 </div>
+            )}
 		</div>
 	);
 }

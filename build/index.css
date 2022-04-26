@@ -24,4 +24,8 @@
   padding-left: 0 !important;
 }
 
+.wp-block-block-test-image-list__slider--img.list {
+  margin-bottom: 50px;
+}
+
 /*# sourceMappingURL=index.css.map*/
