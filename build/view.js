@@ -4412,7 +4412,7 @@ __webpack_require__.r(__webpack_exports__);
     draggable: true,
     wrapAround: true,
     pauseAutoPlayOnHover: false
-  });
+  }); // eslint-disable-next-line no-undef
 })(jQuery);
 }();
 /******/ })()

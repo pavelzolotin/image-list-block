@@ -26,7 +26,7 @@ export default function Edit( {
 	noticeOperations,
 	noticeUI,
 } ) {
-	const { gallery, id, displayImageList } = attributes;
+	const { gallery, displayImageList } = attributes;
 	const ids =
 		gallery && gallery.length > 0 && gallery.map( ( obj ) => obj.id );
 
@@ -113,9 +113,12 @@ export default function Edit( {
 									<img
 										src={ obj.url }
 										alt={ obj.alt }
+										id={ obj.id }
 										key={ index }
 										className={
-											id ? `wp-image-${ id } list` : null
+											obj.id
+												? `wp-image-${ obj.id }`
+												: null
 										}
 									/>
 									{ isBlobURL( obj.url ) && <Spinner /> }
@@ -128,11 +131,15 @@ export default function Edit( {
 					( gallery &&
 						( gallery.length === undefined ||
 							gallery.length === 0 ) ) ) && (
+					// eslint-disable-next-line react/jsx-indent
 					<MediaPlaceholder
 						icon="format-gallery"
 						labels={ {
-							title: 'Image Gallery',
-							instructions: 'Add image gallery to your page.',
+							title: __( 'Image Gallery', 'image-list' ),
+							instructions: __(
+								'Add image gallery on your page.',
+								'image-list'
+							),
 						} }
 						onSelect={ onSelectImage }
 						onError={ onUploadError }
@@ -157,9 +164,12 @@ export default function Edit( {
 										<img
 											src={ obj.url }
 											alt={ obj.alt }
+											id={ obj.id }
 											key={ index }
 											className={
-												id ? `wp-image-${ id }` : null
+												obj.id
+													? `wp-image-${ obj.id }`
+													: null
 											}
 										/>
 										{ isBlobURL( obj.url ) && <Spinner /> }

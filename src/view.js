@@ -9,4 +9,5 @@ import '../assets/flickity/flickity.pkgd.js';
 		wrapAround: true,
 		pauseAutoPlayOnHover: false,
 	} );
+	// eslint-disable-next-line no-undef
 } )( jQuery );

@@ -1,7 +1,7 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
 export default function Save( { attributes } ) {
-	const { gallery, id } = attributes;
+	const { gallery } = attributes;
 
 	return (
 		<div { ...useBlockProps.save() }>
@@ -13,7 +13,7 @@ export default function Save( { attributes } ) {
 							src={ obj.url }
 							alt={ obj.alt }
 							key={ index }
-							className={ id ? `wp-image-${ id }` : null }
+							className={ obj.id ? `wp-image-${ obj.id }` : null }
 						/>
 					) ) }
 				</div>

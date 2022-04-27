@@ -4354,7 +4354,6 @@ function Edit({
 }) {
   const {
     gallery,
-    id,
     displayImageList
   } = attributes;
   const ids = gallery && gallery.length > 0 && gallery.map(obj => obj.id);
@@ -4420,13 +4419,15 @@ function Edit({
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove Gallery', 'image-list'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), displayImageList && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, gallery && gallery.length > 0 && gallery.map((obj, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: obj.url,
     alt: obj.alt,
+    id: obj.id,
     key: index,
-    className: id ? `wp-image-${id} list` : null
-  }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(obj.url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Spinner, null)))), (!gallery || gallery && (gallery.length === undefined || gallery.length === 0)) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
+    className: obj.id ? `wp-image-${obj.id}` : null
+  }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(obj.url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Spinner, null)))), (!gallery || gallery && (gallery.length === undefined || gallery.length === 0)) && // eslint-disable-next-line react/jsx-indent
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
     icon: "format-gallery",
     labels: {
-      title: 'Image Gallery',
-      instructions: 'Add image gallery to your page.'
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image Gallery', 'image-list'),
+      instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add image gallery on your page.', 'image-list')
     },
     onSelect: onSelectImage,
     onError: onUploadError,
@@ -4441,8 +4442,9 @@ function Edit({
   }, gallery.map((obj, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: obj.url,
     alt: obj.alt,
+    id: obj.id,
     key: index,
-    className: id ? `wp-image-${id}` : null
+    className: obj.id ? `wp-image-${obj.id}` : null
   }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(obj.url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Spinner, null)))))));
 }
 
@@ -4495,8 +4497,7 @@ function Save({
   attributes
 }) {
   const {
-    gallery,
-    id
+    gallery
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), gallery && gallery.length > 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-image-list__slider"
@@ -4505,7 +4506,7 @@ function Save({
     src: obj.url,
     alt: obj.alt,
     key: index,
-    className: id ? `wp-image-${id}` : null
+    className: obj.id ? `wp-image-${obj.id}` : null
   }))));
 }
 
@@ -4531,7 +4532,7 @@ __webpack_require__.r(__webpack_exports__);
     draggable: true,
     wrapAround: true,
     pauseAutoPlayOnHover: false
-  });
+  }); // eslint-disable-next-line no-undef
 })(jQuery);
 
 /***/ }),
