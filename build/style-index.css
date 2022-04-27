@@ -152,7 +152,7 @@ https://flickity.metafizzy.co
 .entry-content .wp-block-block-test-image-list:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce) {
   max-width: 960px;
   margin: 0 auto;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 .wp-block-block-test-image-list__slider {
   width: 960px;
@@ -197,9 +197,7 @@ https://flickity.metafizzy.co
   opacity: 1;
 }
 .wp-block-block-test-image-list .flickity-page-dots > .dot.is-selected {
-  width: 14px;
-  height: 14px;
-  margin: -3px 12px;
+  transform: scale(2);
 }
 
 /*# sourceMappingURL=style-index.css.map*/

@@ -8,7 +8,7 @@
 		.entry-content & {
 			max-width: 960px;
 			margin: 0 auto;
-			margin-bottom: 50px;
+			margin-bottom: 100px;
 		}
 	}
 
@@ -61,9 +61,7 @@
 			opacity: 1;
 
 			&.is-selected {
-				width: 14px;
-				height: 14px;
-				margin: -3px 12px;
+				transform: scale( 2 );
 			}
 		}
 	}

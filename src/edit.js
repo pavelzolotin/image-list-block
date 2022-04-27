@@ -4,8 +4,8 @@ import {
 	useBlockProps,
 	BlockControls,
 	MediaUpload,
-	InspectorControls,
 	MediaPlaceholder,
+	InspectorControls,
 } from '@wordpress/block-editor';
 import {
 	Spinner,
@@ -26,7 +26,7 @@ export default function Edit( {
 	noticeOperations,
 	noticeUI,
 } ) {
-	const { gallery, displayImageList } = attributes;
+	const { gallery, id, displayImageList } = attributes;
 	const ids =
 		gallery && gallery.length > 0 && gallery.map( ( obj ) => obj.id );
 
@@ -114,7 +114,9 @@ export default function Edit( {
 										src={ obj.url }
 										alt={ obj.alt }
 										key={ index }
-										className="wp-block-block-test-image-list__slider--img list"
+										className={
+											id ? `wp-image-${ id } list` : null
+										}
 									/>
 									{ isBlobURL( obj.url ) && <Spinner /> }
 								</>
@@ -156,7 +158,9 @@ export default function Edit( {
 											src={ obj.url }
 											alt={ obj.alt }
 											key={ index }
-											className="wp-block-block-test-image-list__slider--img"
+											className={
+												id ? `wp-image-${ id }` : null
+											}
 										/>
 										{ isBlobURL( obj.url ) && <Spinner /> }
 									</>

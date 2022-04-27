@@ -4354,6 +4354,7 @@ function Edit({
 }) {
   const {
     gallery,
+    id,
     displayImageList
   } = attributes;
   const ids = gallery && gallery.length > 0 && gallery.map(obj => obj.id);
@@ -4420,7 +4421,7 @@ function Edit({
     src: obj.url,
     alt: obj.alt,
     key: index,
-    className: "wp-block-block-test-image-list__slider--img list"
+    className: id ? `wp-image-${id} list` : null
   }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(obj.url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Spinner, null)))), (!gallery || gallery && (gallery.length === undefined || gallery.length === 0)) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
     icon: "format-gallery",
     labels: {
@@ -4441,7 +4442,7 @@ function Edit({
     src: obj.url,
     alt: obj.alt,
     key: index,
-    className: "wp-block-block-test-image-list__slider--img"
+    className: id ? `wp-image-${id}` : null
   }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(obj.url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Spinner, null)))))));
 }
 
@@ -4494,7 +4495,8 @@ function Save({
   attributes
 }) {
   const {
-    gallery
+    gallery,
+    id
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), gallery && gallery.length > 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-block-block-test-image-list__slider"
@@ -4503,7 +4505,7 @@ function Save({
     src: obj.url,
     alt: obj.alt,
     key: index,
-    className: "wp-block-block-test-image-list__slider--img"
+    className: id ? `wp-image-${id}` : null
   }))));
 }
 
@@ -4526,7 +4528,7 @@ __webpack_require__.r(__webpack_exports__);
     cellAlign: 'left',
     contain: true,
     autoPlay: true,
-    draggable: false,
+    draggable: true,
     wrapAround: true,
     pauseAutoPlayOnHover: false
   });
