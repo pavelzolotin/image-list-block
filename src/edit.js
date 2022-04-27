@@ -114,7 +114,6 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 										<img
 											src={ obj.url }
 											alt={ obj.alt }
-											id={ obj.id }
 											key={ index }
 											className={
 												obj.id
@@ -140,7 +139,6 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 										<img
 											src={ obj.url }
 											alt={ obj.alt }
-											id={ obj.id }
 											key={ index }
 											className={
 												obj.id
