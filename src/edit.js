@@ -4,6 +4,7 @@ import {
 	useBlockProps,
 	BlockControls,
 	MediaUpload,
+	MediaUploadCheck,
 	MediaPlaceholder,
 	InspectorControls,
 } from '@wordpress/block-editor';
@@ -13,6 +14,7 @@ import {
 	ToolbarButton,
 	ToggleControl,
 	Button,
+	withNotices,
 } from '@wordpress/components';
 import { isBlobURL } from '@wordpress/blob';
 import './editor.scss';
@@ -20,34 +22,29 @@ import './editor.scss';
 //external imports
 import Flickity from 'react-flickity-component';
 
-export default function Edit( {
-	attributes,
-	setAttributes,
-	noticeOperations,
-	noticeUI,
-} ) {
-	const { gallery, displayImageList } = attributes;
-	const ids =
-		gallery && gallery.length > 0 && gallery.map( ( obj ) => obj.id );
+function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
+	const { gallery, ids, displayImageList } = attributes;
 
 	const onSelectImage = ( media ) => {
-		const images = [];
-		media.forEach( ( obj ) => {
-			images.push( {
-				url: obj.url,
-				id: obj.id,
-				alt: obj.alt,
-			} );
-		} );
+		if ( ! media ) {
+			setAttributes( { gallery: [], ids: [] } );
+			return;
+		}
 
 		setAttributes( {
-			gallery: images,
+			gallery: media.map( ( image ) => ( {
+				id: image.id,
+				url: image.url,
+				alt: image.alt,
+			} ) ),
+			ids: media.map( ( image ) => image.id ),
 		} );
 	};
 
 	const removeImage = () => {
 		setAttributes( {
-			gallery: undefined,
+			gallery: [],
+			ids: [],
 		} );
 	};
 
@@ -65,8 +62,8 @@ export default function Edit( {
 
 	return (
 		<>
-			{ gallery && (
-				<InspectorControls>
+			<InspectorControls>
+				{ gallery && gallery.length > 0 && (
 					<PanelBody title={ __( 'Image Settings', 'image-list' ) }>
 						<ToggleControl
 							label="Change images view"
@@ -82,77 +79,56 @@ export default function Edit( {
 							checked={ displayImageList }
 						/>
 					</PanelBody>
-				</InspectorControls>
-			) }
+				) }
+			</InspectorControls>
 			{ gallery && gallery.length > 0 && (
 				<BlockControls group="inline">
-					<MediaUpload
-						onSelect={ onSelectImage }
-						allowedTypes={ [ 'image' ] }
-						value={ ids }
-						gallery
-						multiple
-						render={ ( { open } ) => (
-							<Button onClick={ open }>
-								{ __( 'Edit Gallery', 'image-list' ) }
-							</Button>
-						) }
-					/>
-					<ToolbarButton onClick={ removeImage }>
-						{ __( 'Remove Gallery', 'image-list' ) }
-					</ToolbarButton>
+					<>
+						<MediaUploadCheck>
+							<MediaUpload
+								onSelect={ onSelectImage }
+								allowedTypes={ [ 'image' ] }
+								value={ ids }
+								gallery
+								multiple
+								render={ ( { open } ) => (
+									<Button onClick={ open }>
+										{ __( 'Edit Gallery', 'image-list' ) }
+									</Button>
+								) }
+							/>
+						</MediaUploadCheck>
+						<ToolbarButton onClick={ removeImage }>
+							{ __( 'Remove Gallery', 'image-list' ) }
+						</ToolbarButton>
+					</>
 				</BlockControls>
 			) }
 			<div { ...useBlockProps() }>
-				{ displayImageList && (
+				{ gallery && gallery.length ? (
 					<>
-						{ gallery &&
-							gallery.length > 0 &&
-							gallery.map( ( obj, index ) => (
-								<>
-									<img
-										src={ obj.url }
-										alt={ obj.alt }
-										id={ obj.id }
-										key={ index }
-										className={
-											obj.id
-												? `wp-image-${ obj.id }`
-												: null
-										}
-									/>
-									{ isBlobURL( obj.url ) && <Spinner /> }
-								</>
-							) ) }
-					</>
-				) }
+						{ displayImageList && (
+							<>
+								{ gallery.map( ( obj, index ) => (
+									<>
+										<img
+											src={ obj.url }
+											alt={ obj.alt }
+											id={ obj.id }
+											key={ index }
+											className={
+												obj.id
+													? `wp-image-${ obj.id }`
+													: null
+											}
+										/>
+										{ isBlobURL( obj.url ) && <Spinner /> }
+									</>
+								) ) }
+							</>
+						) }
 
-				{ ( ! gallery ||
-					( gallery &&
-						( gallery.length === undefined ||
-							gallery.length === 0 ) ) ) && (
-					// eslint-disable-next-line react/jsx-indent
-					<MediaPlaceholder
-						icon="format-gallery"
-						labels={ {
-							title: __( 'Image Gallery', 'image-list' ),
-							instructions: __(
-								'Add image gallery on your page.',
-								'image-list'
-							),
-						} }
-						onSelect={ onSelectImage }
-						onError={ onUploadError }
-						accept="image/*"
-						allowedTypes={ [ 'image' ] }
-						notices={ noticeUI }
-						gallery
-						multiple
-					/>
-				) }
-				{ ! displayImageList && (
-					<>
-						{ gallery && gallery.length > 0 && (
+						{ ! displayImageList && (
 							<Flickity
 								className={
 									'wp-block-block-test-image-list__slider'
@@ -178,8 +154,28 @@ export default function Edit( {
 							</Flickity>
 						) }
 					</>
+				) : (
+					<MediaPlaceholder
+						icon="format-gallery"
+						labels={ {
+							title: __( 'Image Gallery', 'image-list' ),
+							instructions: __(
+								'Add image gallery on your page.',
+								'image-list'
+							),
+						} }
+						onSelect={ onSelectImage }
+						onError={ onUploadError }
+						accept="image/*"
+						allowedTypes={ [ 'image' ] }
+						notices={ noticeUI }
+						gallery
+						multiple
+					/>
 				) }
 			</div>
 		</>
 	);
 }
+
+export default withNotices( Edit );

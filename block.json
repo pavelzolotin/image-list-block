@@ -35,7 +35,10 @@
 				}
 			}
 		},
-        "displayImageList": {
+		"ids": {
+			"type": "array"
+		},
+		"displayImageList": {
 			"type": "boolean",
 			"default": false
 		}
