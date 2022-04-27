@@ -66,12 +66,12 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 				{ gallery && gallery.length > 0 && (
 					<PanelBody title={ __( 'Image Settings', 'image-list' ) }>
 						<ToggleControl
-							label="Change images view"
+							label={ __( 'Change images view', 'image-list' ) }
 							className="toggleImage"
 							help={
 								displayImageList
-									? 'Show all image list.'
-									: 'Show as slider.'
+									? __( 'Show all image list.', 'image-list' )
+									: __( 'Show as slider.', 'image-list' )
 							}
 							onChange={ ( boolean ) => {
 								setAttributes( { displayImageList: boolean } );
