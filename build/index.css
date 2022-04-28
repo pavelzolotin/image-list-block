@@ -6,16 +6,10 @@
   margin: 0 auto;
   margin-bottom: 100px;
 }
-.wp-block-block-test-image-list.block-editor-block-list__block.wp-block img {
-  height: 720px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  margin-bottom: 50px;
-}
 .wp-block-block-test-image-list ol.flickity-page-dots {
   margin: 0;
   padding-left: 0;
-  bottom: -10px;
+  bottom: -50px;
 }
 
 /*# sourceMappingURL=index.css.map*/

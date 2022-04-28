@@ -12,14 +12,24 @@
 		}
 	}
 
-	&__slider {
-		width: 960px;
+	.wp-block-block-test-image-list__slider
+		.wp-block-block-test-image-list__slider-cell {
+		width: 100%;
+		height: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-		img {
+		> img {
+			display: block;
 			width: 100%;
 			height: 720px;
 			object-fit: cover;
 		}
+	}
+
+	&__slider {
+		width: 960px;
 
 		> button:not( :hover ):not( :active ):not( .has-background ) {
 			background: #cde1f0;
@@ -50,7 +60,7 @@
 	}
 
 	.flickity-page-dots {
-		bottom: -60px;
+		bottom: -50px;
 
 		> .dot {
 			width: 7px;

@@ -154,13 +154,22 @@ https://flickity.metafizzy.co
   margin: 0 auto;
   margin-bottom: 100px;
 }
-.wp-block-block-test-image-list__slider {
-  width: 960px;
+.wp-block-block-test-image-list .wp-block-block-test-image-list__slider .wp-block-block-test-image-list__slider-cell {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.wp-block-block-test-image-list__slider img {
+.wp-block-block-test-image-list .wp-block-block-test-image-list__slider .wp-block-block-test-image-list__slider-cell > img {
+  display: block;
+  width: 100%;
   height: 720px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.wp-block-block-test-image-list__slider {
+  width: 960px;
 }
 .wp-block-block-test-image-list__slider > button:not(:hover):not(:active):not(.has-background) {
   background: #cde1f0;
@@ -185,7 +194,7 @@ https://flickity.metafizzy.co
   left: -100px;
 }
 .wp-block-block-test-image-list .flickity-page-dots {
-  bottom: -60px;
+  bottom: -50px;
 }
 .wp-block-block-test-image-list .flickity-page-dots > .dot {
   width: 7px;

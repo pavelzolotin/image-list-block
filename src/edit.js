@@ -136,17 +136,25 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 							>
 								{ gallery.map( ( obj, index ) => (
 									<>
-										<img
-											src={ obj.url }
-											alt={ obj.alt }
+										<div
 											key={ index }
 											className={
-												obj.id
-													? `wp-image-${ obj.id }`
-													: null
+												'wp-block-block-test-image-list__slider-cell'
 											}
-										/>
-										{ isBlobURL( obj.url ) && <Spinner /> }
+										>
+											<img
+												src={ obj.url }
+												alt={ obj.alt }
+												className={
+													obj.id
+														? `wp-image-${ obj.id }`
+														: null
+												}
+											/>
+											{ isBlobURL( obj.url ) && (
+												<Spinner />
+											) }
+										</div>
 									</>
 								) ) }
 							</Flickity>
