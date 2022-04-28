@@ -6,6 +6,9 @@
   margin: 0 auto;
   margin-bottom: 100px;
 }
+.wp-block-block-test-image-list.block-editor-block-list__block.wp-block img {
+  margin-bottom: 50px;
+}
 .wp-block-block-test-image-list ol.flickity-page-dots {
   margin: 0;
   padding-left: 0;
