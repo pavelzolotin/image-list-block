@@ -117,7 +117,7 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 											key={ index }
 											className={
 												obj.id
-													? `wp-image-${ obj.id }`
+													? `wp-image-${ obj.id } list`
 													: null
 											}
 										/>

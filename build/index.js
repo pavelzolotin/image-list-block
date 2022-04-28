@@ -112,7 +112,7 @@ function Edit({
     src: obj.url,
     alt: obj.alt,
     key: index,
-    className: obj.id ? `wp-image-${obj.id}` : null
+    className: obj.id ? `wp-image-${obj.id} list` : null
   }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_4__.isBlobURL)(obj.url) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Spinner, null)))), !displayImageList && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((react_flickity_component__WEBPACK_IMPORTED_MODULE_6___default()), {
     className: 'wp-block-block-test-image-list__slider',
     options: flickityOptions
