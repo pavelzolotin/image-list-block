@@ -5,11 +5,11 @@ const imageSlider = document.querySelectorAll(
 	'.wp-block-block-test-image-list__slider'
 );
 
-imageSlider.forEach( function ( obj ) {
-	new Flickity( obj, {
+imageSlider.forEach( function ( el ) {
+	new Flickity( el, {
 		// options
 		cellAlign: 'center',
-		contain: true,
+		contain: false,
 		autoPlay: true,
 		draggable: true,
 		wrapAround: true,

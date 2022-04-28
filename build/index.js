@@ -78,7 +78,7 @@ function Edit({
   const flickityOptions = {
     cellAlign: 'center',
     draggable: true,
-    contain: true,
+    contain: false,
     wrapAround: true
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, gallery && gallery.length > 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
@@ -220,11 +220,11 @@ __webpack_require__.r(__webpack_exports__);
 //import '../assets/flickity/flickity.pkgd.js';
 
 const imageSlider = document.querySelectorAll('.wp-block-block-test-image-list__slider');
-imageSlider.forEach(function (obj) {
-  new (flickity__WEBPACK_IMPORTED_MODULE_0___default())(obj, {
+imageSlider.forEach(function (el) {
+  new (flickity__WEBPACK_IMPORTED_MODULE_0___default())(el, {
     // options
     cellAlign: 'center',
-    contain: true,
+    contain: false,
     autoPlay: true,
     draggable: true,
     wrapAround: true,

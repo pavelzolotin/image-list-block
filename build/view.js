@@ -3901,11 +3901,11 @@ __webpack_require__.r(__webpack_exports__);
 //import '../assets/flickity/flickity.pkgd.js';
 
 const imageSlider = document.querySelectorAll('.wp-block-block-test-image-list__slider');
-imageSlider.forEach(function (obj) {
-  new (flickity__WEBPACK_IMPORTED_MODULE_0___default())(obj, {
+imageSlider.forEach(function (el) {
+  new (flickity__WEBPACK_IMPORTED_MODULE_0___default())(el, {
     // options
     cellAlign: 'center',
-    contain: true,
+    contain: false,
     autoPlay: true,
     draggable: true,
     wrapAround: true,

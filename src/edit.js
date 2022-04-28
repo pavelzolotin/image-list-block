@@ -56,7 +56,7 @@ function Edit( { attributes, setAttributes, noticeOperations, noticeUI } ) {
 	const flickityOptions = {
 		cellAlign: 'center',
 		draggable: true,
-		contain: true,
+		contain: false,
 		wrapAround: true,
 	};
 

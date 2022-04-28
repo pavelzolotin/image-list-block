@@ -168,9 +168,6 @@ https://flickity.metafizzy.co
   -o-object-fit: cover;
      object-fit: cover;
 }
-.wp-block-block-test-image-list__slider {
-  width: 960px;
-}
 .wp-block-block-test-image-list__slider > button:not(:hover):not(:active):not(.has-background) {
   background: #cde1f0;
   color: #0066b3;
