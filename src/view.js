@@ -1,4 +1,3 @@
-//import '../assets/flickity/flickity.pkgd.js';
 import Flickity from 'flickity';
 
 const imageSlider = document.querySelectorAll(
@@ -7,7 +6,6 @@ const imageSlider = document.querySelectorAll(
 
 imageSlider.forEach( function ( el ) {
 	new Flickity( el, {
-		// options
 		cellAlign: 'center',
 		contain: false,
 		autoPlay: true,
@@ -16,24 +14,3 @@ imageSlider.forEach( function ( el ) {
 		pauseAutoPlayOnHover: false,
 	} );
 } );
-
-// ( function ( $ ) {
-// 	$( '.wp-block-block-test-image-list__slider' ).flickity( {
-// 		cellAlign: 'left',
-// 		contain: true,
-// 		autoPlay: true,
-// 		draggable: true,
-// 		wrapAround: true,
-// 		pauseAutoPlayOnHover: false,
-// 	} );
-// 	// eslint-disable-next-line no-undef
-// } )( jQuery );
-
-// new Flickity( '.wp-block-block-test-image-list__slider', {
-// 	cellAlign: 'left',
-// 	contain: true,
-// 	autoPlay: true,
-// 	draggable: true,
-// 	wrapAround: true,
-// 	pauseAutoPlayOnHover: false,
-// } );
